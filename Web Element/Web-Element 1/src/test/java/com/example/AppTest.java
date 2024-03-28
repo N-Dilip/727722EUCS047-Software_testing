@@ -1,6 +1,6 @@
 package com.example;
 
-import java.util.logging.LogManager;
+//import java.util.logging.LogManager;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

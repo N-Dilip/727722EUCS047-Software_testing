@@ -1,6 +1,6 @@
 package com.example;
 
-import static org.junit.Assert.assertTrue;
+//import static org.junit.Assert.assertTrue;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -15,9 +15,8 @@ import org.openqa.selenium.interactions.Actions;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class AppTest 
+public class AppTest
 {
-  
     //log4j1
     public static Logger logger=LogManager.getLogger(AppTest.class);
     public static WebDriver driver;
@@ -26,7 +25,7 @@ public class AppTest
     {
         WebDriverManager.chromedriver().setup();
         driver=new ChromeDriver();
-         ChromeOptions chromeOptions = new ChromeOptions();
+        ChromeOptions chromeOptions = new ChromeOptions();
         // driver = new RemoteWebDriver(new URL("http://34.85.201.58:4488/"), chromeOptions);
         driver.get("https://www.moneycontrol.com/");
         // WebDriverListener listener = new EventHandler();
@@ -37,7 +36,7 @@ public class AppTest
         driver.findElement(By.xpath("/html/body/div[3]/header/div[1]/div[1]/div/div/div[2]/div/div/form/input[5]")).sendKeys("Reliance Industries");
         Thread.sleep(3000);
         driver.findElement(By.xpath("//*[@id=\"autosuggestlist\"]/ul/li[1]/a")).click();
-         js.executeScript("window.scrollBy(0,900)");
+        js.executeScript("window.scrollBy(0,900)");
         String str=driver.findElement(By.xpath("/html/body/div[13]/div[2]/div[2]/div[2]/div[1]/div/h1")).getText();
         if(str.equals("Reliance Industries Ltd."))
         {

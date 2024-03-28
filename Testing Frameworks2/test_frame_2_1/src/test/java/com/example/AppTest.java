@@ -19,7 +19,7 @@ import com.google.common.io.Files;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class AppTest 
+public class AppTest
 {
     @Test
     public void testing() throws Exception
@@ -84,5 +84,6 @@ public class AppTest
         catch(Exception e){
             System.out.println(e.getMessage());
         }
+        wb.close();
     }
 }

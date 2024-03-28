@@ -14,7 +14,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-public class AppTest 
+public class AppTest
 {
     @Test
     public void testing() throws Exception
@@ -65,6 +65,7 @@ public class AppTest
         else
             System.out.println("Incorrect");
         Thread.sleep(5000);
+        wb.close();
         driver.quit();
     }
 }

@@ -2,6 +2,8 @@ package com.example;
 
 import java.io.File;
 import java.io.FileInputStream;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Row;
@@ -12,18 +14,17 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class AppTest {
 
-     public static Logger logger = LogManager.getLogger(AppTest.class);
+    public static Logger logger = LogManager.getLogger(AppTest.class);
     
     @Test
     public void test() {
         // Set Chrome driver path
-         WebDriverManager.chromedriver().setup();
+        WebDriverManager.chromedriver().setup();
         WebDriver driver=new ChromeDriver();
 
 
@@ -32,6 +33,7 @@ public class AppTest {
             driver.get("https://www.ixigo.com/");
             File f=new File("C:\\Users\\91759\\Downloads\\Book1.xls");
             FileInputStream fr=new FileInputStream(f);
+            @SuppressWarnings("resource")
             Workbook wb=new HSSFWorkbook(fr);
             Sheet st=wb.getSheet("Sheet1");
             Row r=st.getRow(0);
@@ -97,7 +99,7 @@ public class AppTest {
             String currentUrl = driver.getCurrentUrl();
             if (currentUrl.contains("about")) {
                 System.out.println("Redirected URL contains 'about'. Test Case 2 passed.");
-                logger.info("It is true"); 
+                logger.info("It is true");
             } else {
                 System.out.println("Redirected URL does not contain 'about'. Test Case 2 failed.");
                 logger.info("It is false");
@@ -105,6 +107,6 @@ public class AppTest {
 
         } catch (Exception e) {
             System.out.println("Exception occurred: " + e.getMessage());
-        } 
+        }
     }
 }

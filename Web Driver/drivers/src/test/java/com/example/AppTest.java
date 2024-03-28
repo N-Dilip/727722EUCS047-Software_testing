@@ -8,7 +8,6 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class AppTest
 {
-   
     private static final String Select = null;
     @Test
     public void Test() throws InterruptedException
